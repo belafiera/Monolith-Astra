@@ -1,0 +1,22 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for p in posts %}
+
+    {% if p.cover_picture %}
+    <p><img class="img-article-left thumb" src="{{p.cover_picture.url}}"></p>
+    {% endif %}
+
+    <li><h2>{{p.name}}</h2>
+        <h3>{{p.author_of}}</h3>
+        <p>{{p.description}}</p>
+        <div class="clear"></div>
+        <h3>Genre: {{p.genre}}</h3>
+<h3>User's rating: {{p.user_rating}}</h3>
+<h3>Critique's rating: {{p.critique_rating}}</h3>
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Author?</a></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

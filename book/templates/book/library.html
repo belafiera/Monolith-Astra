@@ -1,0 +1,23 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+	{% for p in posts_library %}
+			<li>
+			<h2>{{p.name}}</h2>
+
+	{% autoescape on %}
+				<p><h4>Address:</h4></p>
+	{{p.address|linebreaks|truncatewords:90}}
+				<p><h2>Available books:</h2></p>
+				{% for a in p.available_books.all %}
+            <h3>{{ a.name }}</h3>
+          {% endfor %}
+
+	{% endautoescape %}
+			<div class="clear"></div>
+
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}
