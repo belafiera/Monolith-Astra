@@ -19,9 +19,11 @@ menu = [{'title': "The task", 'url_name': 'about'},
         {'title': "Libraries", 'url_name': 'libra_page'}
         ]
 
+
 class BookAPIView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
 
 def index(request):
     posts = Book.objects.all()

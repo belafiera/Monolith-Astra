@@ -15,6 +15,8 @@ urlpatterns = [
     path('post/<int:post_id>/', show_post, name='post'),
     path('form/', views.form, name='form'),
     path('show_post_author/<int:post_id>/', show_post_author, name='post'),
+
     path('user/', views.user, name='user'),
     path('api/book/', BookAPIView.as_view()),
+
 ]
